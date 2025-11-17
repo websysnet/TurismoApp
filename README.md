@@ -1,7 +1,8 @@
-# ✈️ VuelosApi .NET WebApi Aspire
+# ✈️ TurismoAPi .NET WebApi Aspire
 
 ## 📋 Descripción
-VuelosAPI es una aplicación API en .NET que permite gestionar información relacionada con vuelos. Esta aplicación está construida utilizando las últimas tecnologías de .NET y sigue las mejores prácticas de desarrollo (Clean Code , Solid)
+TurismoAPi es una aplicación API en .NET que permite gestionar información relacionada con servicios de Turismo. 
+Esta aplicación está construida utilizando las últimas tecnologías de .NET y sigue las mejores prácticas de desarrollo (Clean Code , Solid)
 
 
 
@@ -11,16 +12,17 @@ VuelosAPI es una aplicación API en .NET que permite gestionar información rela
 - Reservas de boletos (proximamente)
 - Seguimiento de horarios (proximamente)
 - Sistema de búsqueda avanzada (proximamente)
+- Servicios de Hoteles, Traslados, Excursiones, Restaurantes
 
 ## 🛠️ Tecnologías Utilizadas
-- .NET 10
+- .NET 9
 - C#
 - Entity Framework Core (opcional) (proximamente)
 - SQL Server (opcional) (proximamente)
 
 ## ⚙️ Requisitos Previos
 - .NET 9.0 SDK o superior
-- IDE (Visual Studio 2022 recomendado)
+- IDE (Visual Studio 2022 recomendado) o VSCode
 - SQL Server (opcional, dependiendo de la implementación)
 
 ## 🏗️ Estructura del proyecto
@@ -28,18 +30,18 @@ VuelosAPI es una aplicación API en .NET que permite gestionar información rela
 Estructura propuesta y explicada para facilitar mantenimiento y escalado en .NET 10:
 
 ```
-VuelosApi/
-├── Aplication/Controllers/  # Controladores API 
+TurismoApp.ApiService/
+├── Controllers/  # Controladores API (Vuelos, Hoteles, Excursiones, otros)
 ├── Domain/Entities              # Entidades del dominio
-├── DTOs/                 # Objetos de transferencia de datos (proximamente)	
-├── Services/             # Lógica de negocio (servicios)
-├── Repositories/       # Implementaciones concretas (repositorios, DB context)
-├── VuelosApi.Tests/	  # Proyecto de pruebas unitarias (proximamente)
+├── Domain/Interfaces                # Objetos de DTO de datos (proximamente)	
+├── Aplication/Services             # Lógica de negocio (servicios)
+├── Infraestructure/Repositories/       # Implementaciones concretas (repositorios, DB context)
+├── TurismoApp.Tests/	  # Proyecto de pruebas unitarias (proximamente)
 ├── Program.cs            # Punto de entrada de la aplicación API (Contiene enpoints web minimalistas)
-└── VuelosApi.csproj      # Archivo de proyecto .NET
+└── TurismoApp.csproj      # Archivo de proyecto .NET
 
-VuelosApiHost/                # Proyecto de hosting Aspire
-VuelosApiServicesDefaults/    # Proyecto de servicios compartidos (logging, métricas, etc.)
+TurismoAppi.AppHost/                # Proyecto de hosting Aspire
+TurismoApp.ServicesDefaults/    # Proyecto de servicios compartidos (logging, métricas, etc.)
 
 ```
 
@@ -51,7 +53,7 @@ git clone [url-del-repositorio]
 
 2. Navega al directorio del proyecto:
 ```powershell
-cd VuelosApi
+cd TurismoAPi
 ```
 
 3. Restaura los paquetes NuGet:
@@ -79,7 +81,7 @@ dotnet run
 ## Probar enpoint vuelos
 1. En un navegador o app de probar apis (postman por ejemplo)
 2.  Usar https://localhost:7263/vuelos se mostrara un listado de vuelos cargados previamente definidos 
-<img src="/assets/images/jsonvuelos.png" alt="VuelosApi" width="480" />	
+<img src="/assets/images/jsonvuelos.png" alt="TurismoAPi" width="480" />	
 
 ---
 ## USO DE ASPIRE COMO CONTENEDOR y METRICAS
@@ -91,12 +93,12 @@ dotnet run
 - Mantener `Controllers` delgados: inyectar servicios desde `Services`.
 - `Infrastructure` contiene implementaciones concretas (ej. `VuelosRepository`) y su registro en DI.
 - `Models` = dominio; `DTOs` = contratos públicos (evita exponer entidades internamente).
-- `VuelosApi.Tests` debe cubrir servicios y controladores con dependencias mockeadas.
+- `TurismoApp.Tests` debe cubrir servicios y controladores con dependencias mockeadas.
 - Añade `docs/architecture.md` con diagramas y convenciones de naming para onboardings.
 
 
 ## 📄 Licencia
-Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
+Este proyecto está bajo la Licencia GPL v3 - ver el archivo [LICENSE](LICENSE) para más detalles.
 
 ## ✍️ Autor
 Gian Amais (Websysnet Systems) 
@@ -108,8 +110,6 @@ Gian Amais (Websysnet Systems)
 ⌨️ con ❤️ por Gian Amais
 
 
-
-Ejemplo mínimo de registro DI recomendado (Program.cs):
 
 ````````
 
