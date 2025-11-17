@@ -1,7 +1,7 @@
-# ✈️ TurismoAPi .NET WebApi Aspire
+# ✈️ TurismoAPP .NET WebApi -Blazor Web and AppHost Aspire Container
 
 ## 📋 Descripción
-TurismoAPi es una aplicación API en .NET que permite gestionar información relacionada con servicios de Turismo. 
+TurismoApp es una aplicación API en .NET que permite gestionar información relacionada con servicios de Turismo. 
 Esta aplicación está construida utilizando las últimas tecnologías de .NET y sigue las mejores prácticas de desarrollo (Clean Code , Solid)
 
 
