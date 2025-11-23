@@ -5,7 +5,6 @@ var apiService = builder.AddProject<Projects.TurismoApp_ApiService>("apiservice"
     .WithHttpHealthCheck("/health");
 
 
-
 // Servicio API secundaria (IA)
 var iaService = builder.AddProject<Projects.APIServiceIA>("apiserviceia")
     .WithExternalHttpEndpoints()

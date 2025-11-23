@@ -13,8 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TurismoApp.Web", "TurismoAp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TurismoApp.Tests", "TurismoApp.Tests\TurismoApp.Tests.csproj", "{7C640792-C109-C57A-6AB0-DE457097D7D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APIServiceIA", "APIServiceIA\APIServiceIA.csproj", "{7CDF22EE-0143-42BA-BA78-0B1ABEB34FE7}"
-EndProject
+
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -85,18 +84,7 @@ Global
 		{7C640792-C109-C57A-6AB0-DE457097D7D0}.Release|x64.Build.0 = Release|Any CPU
 		{7C640792-C109-C57A-6AB0-DE457097D7D0}.Release|x86.ActiveCfg = Release|Any CPU
 		{7C640792-C109-C57A-6AB0-DE457097D7D0}.Release|x86.Build.0 = Release|Any CPU
-		{7CDF22EE-0143-42BA-BA78-0B1ABEB34FE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7CDF22EE-0143-42BA-BA78-0B1ABEB34FE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7CDF22EE-0143-42BA-BA78-0B1ABEB34FE7}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{7CDF22EE-0143-42BA-BA78-0B1ABEB34FE7}.Debug|x64.Build.0 = Debug|Any CPU
-		{7CDF22EE-0143-42BA-BA78-0B1ABEB34FE7}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{7CDF22EE-0143-42BA-BA78-0B1ABEB34FE7}.Debug|x86.Build.0 = Debug|Any CPU
-		{7CDF22EE-0143-42BA-BA78-0B1ABEB34FE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7CDF22EE-0143-42BA-BA78-0B1ABEB34FE7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7CDF22EE-0143-42BA-BA78-0B1ABEB34FE7}.Release|x64.ActiveCfg = Release|Any CPU
-		{7CDF22EE-0143-42BA-BA78-0B1ABEB34FE7}.Release|x64.Build.0 = Release|Any CPU
-		{7CDF22EE-0143-42BA-BA78-0B1ABEB34FE7}.Release|x86.ActiveCfg = Release|Any CPU
-		{7CDF22EE-0143-42BA-BA78-0B1ABEB34FE7}.Release|x86.Build.0 = Release|Any CPU
+		
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
