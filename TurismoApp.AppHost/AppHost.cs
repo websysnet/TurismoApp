@@ -16,8 +16,8 @@ builder.AddProject<Projects.TurismoApp_Web>("webfrontend")
     .WithExternalHttpEndpoints()
     .WithHttpHealthCheck("/health")    
     .WithReference(apiService)
-    .WithReference(iaService)
-    .WaitFor(apiService)
-    .WaitFor(iaService);
+/*     .WithReference(iaService) */
+    .WaitFor(apiService);
+   /*  .WaitFor(iaService); */
 
 builder.Build().Run();
