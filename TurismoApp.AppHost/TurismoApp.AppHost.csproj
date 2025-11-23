@@ -12,8 +12,11 @@
 
   <ItemGroup>
 
+    
     <ProjectReference Include="..\TurismoApp.ApiService\TurismoApp.ApiService.csproj" />
+    <ProjectReference Include="..\TurismoApp.ApiServiceIA\TurismoApp.ApiServiceIA.csproj" />
     <ProjectReference Include="..\TurismoApp.Web\TurismoApp.Web.csproj" />
+
   </ItemGroup>
 
   <ItemGroup>

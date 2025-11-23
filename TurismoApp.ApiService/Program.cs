@@ -36,6 +36,9 @@ if (app.Environment.IsDevelopment())
 
 
 
+//health check endpoint
+app.MapGet("/health", () => Results.Ok("API is healthy")).WithDisplayName("HealthCheck");
+
 
 //Controlador de Vuelos
 app.MapGet("/vuelos", (VuelosController vuelosController) => vuelosController.GetVuelos()).WithDisplayName("GetVuelos");

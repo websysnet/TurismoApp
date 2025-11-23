@@ -6,18 +6,18 @@ var apiService = builder.AddProject<Projects.TurismoApp_ApiService>("apiservice"
 
 
 // Servicio API secundaria (IA)
-/* var iaService = builder.AddProject<Projects.APIServiceIA>("apiserviceia")
-    .WithExternalHttpEndpoints()
-    .WithHttpHealthCheck("/health")
-    .WithReference(apiService); */
+var iaService = builder.AddProject<Projects.TurismoApp_ApiServiceIA>("apiserviceia")
+   .WithExternalHttpEndpoints()
+   .WithHttpHealthCheck("/health")
+   .WithReference(apiService);
 
 // Servicio Web frontend
 builder.AddProject<Projects.TurismoApp_Web>("webfrontend")
     .WithExternalHttpEndpoints()
-    .WithHttpHealthCheck("/health")    
+    .WithHttpHealthCheck("/health")
     .WithReference(apiService)
-/*     .WithReference(iaService) */
-    .WaitFor(apiService);
-   /*  .WaitFor(iaService); */
+    .WithReference(iaService)
+    .WaitFor(apiService)
+     .WaitFor(iaService);
 
 builder.Build().Run();
