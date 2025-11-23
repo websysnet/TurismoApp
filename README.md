@@ -33,15 +33,19 @@ Estructura propuesta y explicada para facilitar mantenimiento y escalado en .NET
 TurismoApp.ApiService/
 ├── Controllers/  # Controladores API (Vuelos, Hoteles, Excursiones, otros)
 ├── Domain/Entities              # Entidades del dominio
-├── Domain/Interfaces                # Objetos de DTO de datos (proximamente)	
+├── Domain/Repositories                # Repositorios de Dominio	
 ├── Aplication/Services             # Lógica de negocio (servicios)
-├── Infraestructure/Repositories/       # Implementaciones concretas (repositorios, DB context)
+├── Infraestructure/Repositories/       # Implementaciones concretas (Respositorios de Dominio, DB context)
 ├── TurismoApp.Tests/	  # Proyecto de pruebas unitarias (proximamente)
 ├── Program.cs            # Punto de entrada de la aplicación API (Contiene enpoints web minimalistas)
 └── TurismoApp.csproj      # Archivo de proyecto .NET
 
-TurismoAppi.AppHost/                # Proyecto de hosting Aspire
+TurismoApp.AppHost/                # Proyecto de hosting Aspire
 TurismoApp.ServicesDefaults/    # Proyecto de servicios compartidos (logging, métricas, etc.)
+
+TurismoApp.ApiServiceIA  #Proyecto de IA Asistencia (Agentes de busquedas, predicciones, clasificacion, otros temas IA)
+
+
 
 ```
 
