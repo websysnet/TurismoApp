@@ -1,7 +1,7 @@
 ﻿namespace TurismoApp.Infraestructure.Repositories
 {
     using TurismoApp.Domain.Entities;
-    using TurismoApp.Domain.Interfaces;
+    using TurismoApp.Domain.Repositories;
     [Serializable]
     public class VuelosRepository:IVuelosRepository
     {

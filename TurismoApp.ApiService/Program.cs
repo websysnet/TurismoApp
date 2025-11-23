@@ -1,7 +1,7 @@
 
 
 using TurismoApp.Domain.Entities;
-using TurismoApp.Domain.Interfaces;
+using TurismoApp.Domain.Repositories;
 using TurismoApp.Infraestructure.Repositories;
 using TurismoApp.Aplication.Services;
 using TurismoApp.Controllers;
@@ -45,19 +45,7 @@ app.MapGet("/vuelos/{id}", (int id) => {
 }).WithDisplayName("GetVueloById");
 
 //Controlador de Hoteles
-app.MapGet("/hoteles", () =>
-{
-    // Simulamos una lista de hoteles
-    List<Hoteles> hoteles = new List<Hoteles>
-    {
-        new() { Id = 1, Name = "Hotel Sol", Description = "Un hotel soleado cerca de la playa", Location = "Ciudad Costera" },
-        new() { Id = 2, Name = "Hotel Luna", Description = "Un hotel tranquilo en las monta as", Location = "Ciudad Monta osa" },
-        new() { Id = 3, Name = "Hotel Estrella", Description = "Un hotel lujoso en el centro de la ciudad", Location = "Ciudad Central" }
-    };
-
-    return hoteles;
-
-}).WithDisplayName("GetHoteles");
+app.MapGet("/hoteles", (HotelesController hotelesController) => hotelesController.GetHoteles()).WithDisplayName("GetHoteles");
 
 // Obtener detalles de un hotel por ID
 app.MapGet("/hoteles/{id}", (int id) =>
