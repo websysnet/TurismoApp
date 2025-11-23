@@ -11,7 +11,7 @@ namespace TurismoApp.Domain.Entities
         public int Ninos { get; set; }      
         public string? Politica { get; set; }
         public Tarifa? Tarifas { get; set; }
-        public List<Servicios> Servicios { get; set; }
+        public List<Servicios> Servicios { get; set; } = new();
     }
 
     public enum Cama
