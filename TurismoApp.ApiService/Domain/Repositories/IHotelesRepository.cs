@@ -1,6 +1,7 @@
 namespace TurismoApp.Domain.Repositories
 {
-    interface IHotelesRepository
+    using TurismoApp.Domain.Entities;
+    public interface IHotelesRepository
     {
         Task<List<Hotel>> GetHoteles();
         Task<Hotel> GetHotelById(int id);

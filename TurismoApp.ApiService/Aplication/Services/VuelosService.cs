@@ -1,6 +1,6 @@
 ﻿namespace TurismoApp.Aplication.Services
 {
-    using TurismoApp.Domain.Interfaces;
+    using TurismoApp.Domain.Repositories;
     using TurismoApp.Domain.Entities;
     public class VuelosService:IVuelosServices
     {

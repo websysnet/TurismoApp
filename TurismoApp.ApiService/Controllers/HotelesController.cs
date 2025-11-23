@@ -1,15 +1,25 @@
 namespace TurismoApp.ApiService.Controllers
 {
     using TurismoApp.Domain.Entities;
+    using TurismoApp.Domain.Repositories;
+    using TurismoApp.Aplication.Services;
    
 
     public class HotelesController
     {
-        private readonly IVuelosRepository _vuelosRepository;
+        private readonly IHotelesService _hotelesService;
         
-        public List<Hoteles> GetHoteles()
+        public HotelesController(IHotelesService hotelesService)
         {
-            return new List<Hoteles>();
+            _hotelesService = hotelesService;
+        }
+        public Task<List<Hotel>> GetHoteles()
+        {
+            return _hotelesService.GetHoteles();
+        }
+        public Task<Hotel> GetHotelById(int id)
+        {
+            return _hotelesService.GetHotelById(id);
         }
     }
 }

@@ -1,10 +1,8 @@
-
-
-using TurismoApp.Domain.Entities;
-using TurismoApp.Domain.Repositories;
 using TurismoApp.Infraestructure.Repositories;
 using TurismoApp.Aplication.Services;
 using TurismoApp.Controllers;
+using TurismoApp.Domain.Repositories;
+using TurismoApp.ApiService.Controllers;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -22,6 +20,9 @@ builder.Services.AddOpenApi();
 builder.Services.AddScoped<IVuelosRepository, VuelosRepository>();
 builder.Services.AddScoped<IVuelosServices, VuelosService>();
 builder.Services.AddScoped<VuelosController>();
+builder.Services.AddScoped<IHotelesRepository, HotelesRepository>();
+builder.Services.AddScoped<IHotelesService, HotelesService>();
+builder.Services.AddScoped<HotelesController>();
 
 var app = builder.Build();
 
@@ -48,10 +49,10 @@ app.MapGet("/vuelos/{id}", (int id) => {
 app.MapGet("/hoteles", (HotelesController hotelesController) => hotelesController.GetHoteles()).WithDisplayName("GetHoteles");
 
 // Obtener detalles de un hotel por ID
-app.MapGet("/hoteles/{id}", (int id) =>
+app.MapGet("/hoteles/{id}", (HotelesController hotelesController, int id) =>
 {
-    var hotel = new Hoteles { Id = id, Name = $"Hotel {id}", Description = "Descripci n del hotel", Location = "Ubicaci n del hotel" };
-    return hotel;
+    return hotelesController.GetHotelById(id);
+    
 }).WithDisplayName("GetHotelById");
 
 app.MapGet("/excursiones", () =>
@@ -99,30 +100,22 @@ app.Run();
 
 
 
-internal class Hoteles
-{
-    public int Id { get; set; }
-    public string Name { get; set; }
-    public string Description { get; set; }
-    public string Location { get; set; }
-
-}
 
 
 internal class Excursiones
 {
     public int Id { get; set; }
-    public string Name { get; set; }
-    public string Description { get; set; }
+    public string? Name { get; set; }
+    public string? Description { get; set; }
     public decimal Price { get; set; }
 }
 
 internal class Traslados
 {
     public int Id { get; set; }
-    public string Tipo { get; set; }
-    public string Origen { get; set; }
-    public string Destino { get; set; }
+    public string? Tipo { get; set; }
+    public string? Origen { get; set; }
+    public string? Destino { get; set; }
     public decimal Price { get; set; }
 }
 

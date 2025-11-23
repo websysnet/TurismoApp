@@ -1,4 +1,4 @@
-﻿namespace TurismoApp.Domain.Interfaces
+﻿namespace TurismoApp.Domain.Repositories
 {
     using TurismoApp.Domain.Entities;
     public interface IVuelosRepository
