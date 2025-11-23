@@ -112,23 +112,27 @@ Sección para documentar cambios importantes por fecha. Añade una entrada por c
 
 - **23-11-2025**
 	- **Proyecto `TurismoApp.ApiService`**:
-		- Se añadieron 10 hoteles de ejemplo en `Infraestructure/Repositories/HotelesRepository.cs` (IDs 1..10) para poblar datos de desarrollo.
-		- Se mantuvo la separación entre `Controllers` y `Aplication/Services` y se reforzaron las interfaces para facilitar pruebas unitarias.
+		- Se mantuvo la separación entre `Controllers` y `Aplication/Services` y se reforzaron las interfaces para facilitar pruebas 	unitarias.
 		- Se creó una versión rápida de la documentación en `README.UPDATED.md` con instrucciones de desarrollo y preview.
+		- Se agregaron nuevos servicios relacionados con Hoteles: endpoint `GET /hoteles` con X hoteles predefinidos (IDs: 1..10).
+		- Refactor: se aplicaron principios **SOLID** y **Clean Code** en los servicios y repositorios principales.
+		- Mejora: nuevas interfaces en `Aplication/Services` para desacoplar lógica de negocio y facilitar pruebas unitarias.
+		- Se agregaron servicios de traslados, vuelos por id
+
 	- **Proyecto `TurismoApp.Web`**:
 		- Se importaron las **Bootstrap Icons** globalmente en `wwwroot/app.css` para facilitar el uso de iconos en componentes.
 		- Se actualizaron iconos en `Components/Layout/NavMenu.razor` (ej.: `bi-building`, `bi-airplane`) y se ajustaron rutas de navegación.
 		- Se dejó un ejemplo de listado de hoteles en `Components/HotelesList.razor` que puede conectarse posteriormente a la API.
-
-- **23-11-2026**
-	- **Proyecto `TurismoApp.ApiService`**:
-		- Se agregaron nuevos servicios relacionados con Hoteles: endpoint `GET /hoteles` con X hoteles predefinidos (IDs: 1..10).
-		- Refactor: se aplicaron principios **SOLID** y **Clean Code** en los servicios y repositorios principales.
-		- Mejora: nuevas interfaces en `Aplication/Services` para desacoplar lógica de negocio y facilitar pruebas unitarias.
-	- **Proyecto `TurismoApp.Web`**:
 		- Ajuste en navegación: se actualizaron enlaces del menú (`NavMenu.razor`) para usar rutas canónicas y nuevos iconos.
 		- UI: se importaron las **Bootstrap Icons** globalmente en `wwwroot/app.css` para facilitar uso de iconografía en componentes.
 		- Mejora estructural: separación de componentes y estilos por carpeta `Components/` y `Layout/` para mejor mantenimiento.
+
+	- **Proyecto `TurismoApp.ApiServiceIA`**:
+		- Se creo nuevo Proyecto para IA que consume APIService.
+		-Se crea nuevos enpoint de pruebas /health y /welcome
+
+
+	
 
 Ejemplo de cómo añadir una nueva entrada:
 

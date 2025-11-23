@@ -2,6 +2,7 @@ using TurismoApp.Infraestructure.Repositories;
 using TurismoApp.Aplication.Services;
 using TurismoApp.Controllers;
 using TurismoApp.Domain.Repositories;
+using TurismoApp.Infraestructure;
 using TurismoApp.ApiService.Controllers;
 
 
@@ -20,9 +21,14 @@ builder.Services.AddOpenApi();
 builder.Services.AddScoped<IVuelosRepository, VuelosRepository>();
 builder.Services.AddScoped<IVuelosServices, VuelosService>();
 builder.Services.AddScoped<VuelosController>();
+
 builder.Services.AddScoped<IHotelesRepository, HotelesRepository>();
 builder.Services.AddScoped<IHotelesService, HotelesService>();
 builder.Services.AddScoped<HotelesController>();
+
+builder.Services.AddScoped<ITrasladosRepository, TrasladosRepository>();
+builder.Services.AddScoped<ITrasladosService, TrasladosService>();
+builder.Services.AddScoped<TrasladosController>();
 
 var app = builder.Build();
 
@@ -44,8 +50,8 @@ app.MapGet("/health", () => Results.Ok("API is healthy")).WithDisplayName("Healt
 app.MapGet("/vuelos", (VuelosController vuelosController) => vuelosController.GetVuelos()).WithDisplayName("GetVuelos");
 
 // Obtener detalles de un vuelo por ID
-app.MapGet("/vuelos/{id}", (int id) => {
-    return $"Detalles del vuelo {id}: Origen - Ciudad A, Destino - Ciudad B, Hora de salida - 10:00 AM";
+app.MapGet("/vuelos/{id}", (VuelosController vuelosController,int id) => {
+    return vuelosController.GetVueloById(id);
 }).WithDisplayName("GetVueloById");
 
 //Controlador de Hoteles
@@ -57,6 +63,29 @@ app.MapGet("/hoteles/{id}", (HotelesController hotelesController, int id) =>
     return hotelesController.GetHotelById(id);
     
 }).WithDisplayName("GetHotelById");
+
+
+
+//Controlador de Traslados
+// Obtener lista de traslados
+app.MapGet("/traslados", (TrasladosController trasladosController) =>
+{
+  var traslados =  trasladosController.GetTrasladosAsync();
+  return traslados;
+
+}).WithDisplayName("GetTraslados");
+
+
+// Obtener detalles de un traslado por ID
+app.MapGet("/traslados/{id}", (TrasladosController trasladosController, int id) =>
+{
+    var traslado = trasladosController.GetTrasladoById(id);
+    return traslado;
+}).WithDisplayName("GetTrasladoById");
+
+
+//Controlador de Excursiones
+// Obtener lista de excursiones
 
 app.MapGet("/excursiones", () =>
 {
@@ -76,20 +105,6 @@ app.MapGet("/excursiones/{id}", (int id) =>
     var excursion = new Excursiones { Id = id, Name = $"Excursi n {id}", Description = "Descripci n de la excursi n", Price = 39.99M };
     return excursion;
 }).WithDisplayName("GetExcursionById");
-
-
-//Controlador de Traslados
-app.MapGet("/traslados", () =>
-{
-    // Simulamos una lista de traslados
-    List<Traslados> traslados = new List<Traslados>
-    {
-        new() { Id = 1, Tipo = "Aeropuerto", Origen = "Aeropuerto Internacional", Destino = "Hotel Central", Price = 25.00M },
-        new() { Id = 2, Tipo = "Ciudad", Origen = "Hotel Central", Destino = "Centro Comercial", Price = 15.00M },
-        new() { Id = 3, Tipo = "Evento", Origen = "Hotel Central", Destino = "Centro de Convenciones", Price = 30.00M }
-    };
-    return traslados;
-}).WithDisplayName("GetTraslados");
 
 app.Run();
 
