@@ -14,7 +14,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapGet("/Bienvenidos", () => "Welcome to API Service IA!");
+app.MapGet("/welcome", () => "Welcome to API Service IA!");
 
 
 app.Run();
