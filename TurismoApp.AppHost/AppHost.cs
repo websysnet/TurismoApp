@@ -6,10 +6,10 @@ var apiService = builder.AddProject<Projects.TurismoApp_ApiService>("apiservice"
 
 
 // Servicio API secundaria (IA)
-var iaService = builder.AddProject<Projects.APIServiceIA>("apiserviceia")
+/* var iaService = builder.AddProject<Projects.APIServiceIA>("apiserviceia")
     .WithExternalHttpEndpoints()
     .WithHttpHealthCheck("/health")
-    .WithReference(apiService);
+    .WithReference(apiService); */
 
 // Servicio Web frontend
 builder.AddProject<Projects.TurismoApp_Web>("webfrontend")
